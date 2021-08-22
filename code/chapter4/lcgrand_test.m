@@ -1,0 +1,13 @@
+N=100000;
+u=lcgrand(0,N);
+[N_samp,x]=hist(u,50);
+bar(x,N_samp,0.2);
+pause
+delta_x=x(4)-x(3);
+y=ones(length(x),1);
+p_hist=N_samp/N/delta_x;
+plot(x,y,'k',x,p_hist,'ok');
+axis([0,1,0.5,1.5]);
+xlabel('随机变量');
+ylabel('概率密度');
+legend('均匀分布概率密度','LCG计算直方图近似');
